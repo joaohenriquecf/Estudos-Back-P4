@@ -32,11 +32,11 @@ public class Usuario implements UserDetails {
     }
 
     public String getPassword() {
-        return "";
+        return senha;
     }
 
     public String getUsername() {
-        return "";
+        return login;
     }
 
     public boolean isAccountNonExpired() {
