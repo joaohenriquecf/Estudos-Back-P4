@@ -1,6 +1,7 @@
 package med.voll.api.domain.usuario;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -25,6 +26,11 @@ public class Usuario implements UserDetails {
     private Long id;
     private String login;
     private String senha;
+
+    public Usuario( String login, String senha) {
+        this.login = login;
+        this.senha = senha;
+    }
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of
@@ -53,5 +59,10 @@ public class Usuario implements UserDetails {
 
     public boolean isEnabled() {
         return true;
+    }
+
+
+    public String getLogin() {
+        return login;
     }
 }
